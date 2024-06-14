@@ -9,10 +9,21 @@
     <script>
       const getDataAJAX = () => {
         const xhr = new XMLHttpRequest();
-        console.dir(xhr);
+        // console.dir(xhr);
+
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+
+        xhr.addEventListener("load", () => {
+          if (xhr.status === 200) {
+            console.log("데이터 받은 후 조회");
+            console.dir(xhr);
+          }
+        });
+
+        xhr.send();
       };
 
-      getEventDataAJAX();
+      getDataAJAX();
     </script>
   </body>
 </html>
