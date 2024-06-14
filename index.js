@@ -6,7 +6,7 @@ const getDataAJAX = () => {
   xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
 
   xhr.addEventListener("load", () => {
-    if (xhr.status === 200) {
+    try {
       // 데이터 parse
       const data = JSON.parse(xhr.responseText);
 
@@ -36,6 +36,8 @@ const getDataAJAX = () => {
         createTitle.innerText = title;
         createContent.innerText = content;
       });
+    } catch (err) {
+      console.error(err);
     }
   });
 
