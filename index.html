@@ -17,17 +17,30 @@
         xhr.addEventListener("load", () => {
           if (xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
+            console.dir(data[0]);
 
             data.forEach((element) => {
-              const h2 = document.createElement("h2");
-              const p = document.createElement("p");
+              const createPostNum = document.createElement("p");
+              const createUserId = document.createElement("p");
+              const createTitle = document.createElement("h2");
+              const createContent = document.createElement("p");
               const hr = document.createElement("hr");
-              root.append(h2, p, hr);
+              root.append(
+                createPostNum,
+                createUserId,
+                createTitle,
+                createContent,
+                hr
+              );
 
+              const postNum = element.id;
+              const userId = element.userId;
               const title = element.title;
               const content = element.body;
-              h2.innerText = title;
-              p.innerText = content;
+              createPostNum.innerText = `No. ${postNum}`;
+              createUserId.innerText = `글쓴이: ${userId}`;
+              createTitle.innerText = title;
+              createContent.innerText = content;
             });
           }
         });
