@@ -21,7 +21,8 @@
             data.forEach((element) => {
               const h2 = document.createElement("h2");
               const p = document.createElement("p");
-              root.append(h2, p);
+              const hr = document.createElement("hr");
+              root.append(h2, p, hr);
 
               const title = element.title;
               const content = element.body;
